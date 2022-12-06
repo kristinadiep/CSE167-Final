@@ -1,0 +1,5 @@
+C:/Users/Kristina/OneDrive/Documents/MY STUFF/CSE 167/final-windows/out/build/x64-debug/CMakeFiles/ModelViewer.dir
+C:/Users/Kristina/OneDrive/Documents/MY STUFF/CSE 167/final-windows/out/build/x64-debug/CMakeFiles/CopyShaders.dir
+C:/Users/Kristina/OneDrive/Documents/MY STUFF/CSE 167/final-windows/out/build/x64-debug/CMakeFiles/CopyModels.dir
+C:/Users/Kristina/OneDrive/Documents/MY STUFF/CSE 167/final-windows/out/build/x64-debug/CMakeFiles/edit_cache.dir
+C:/Users/Kristina/OneDrive/Documents/MY STUFF/CSE 167/final-windows/out/build/x64-debug/CMakeFiles/rebuild_cache.dir

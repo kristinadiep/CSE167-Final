@@ -1,0 +1,44 @@
+# ninja log v5
+2	37	0	CMakeFiles/CopyShaders	e9d7ec302b58025
+2	37	0	C:/Users/Kristina/OneDrive/Documents/MY STUFF/CSE 167/final-windows/out/build/x64-debug/CMakeFiles/CopyShaders	e9d7ec302b58025
+6	65	0	CMakeFiles/CopyModels	3bfa76ec164aa7f6
+6	65	0	C:/Users/Kristina/OneDrive/Documents/MY STUFF/CSE 167/final-windows/out/build/x64-debug/CMakeFiles/CopyModels	3bfa76ec164aa7f6
+65	301	6920066326777224	CMakeFiles/ModelViewer.dir/src/Camera.cpp.obj	b7899cc2ebe38100
+75	478	6920066328557244	CMakeFiles/ModelViewer.dir/src/Shader.cpp.obj	ca431600a2a7a5ed
+68	584	6920066329597231	CMakeFiles/ModelViewer.dir/src/Obj.cpp.obj	b55ff72b86a1da12
+78	681	6920066330587229	CMakeFiles/ModelViewer.dir/src/main.cpp.obj	ceef8e74bc98640e
+71	755	6920066331307227	CMakeFiles/ModelViewer.dir/src/Scene.cpp.obj	191f1ab3ddbcbc02
+755	1017	6920066333747232	ModelViewer.exe	18545dd7e42debc6
+7	15	0	clean	8c45b54705a541e8
+5	37	0	CMakeFiles/CopyShaders	e9d7ec302b58025
+5	37	0	C:/Users/Kristina/OneDrive/Documents/MY STUFF/CSE 167/final-windows/out/build/x64-debug/CMakeFiles/CopyShaders	e9d7ec302b58025
+8	61	0	CMakeFiles/CopyModels	3bfa76ec164aa7f6
+8	61	0	C:/Users/Kristina/OneDrive/Documents/MY STUFF/CSE 167/final-windows/out/build/x64-debug/CMakeFiles/CopyModels	3bfa76ec164aa7f6
+61	293	6920066366928826	CMakeFiles/ModelViewer.dir/src/Camera.cpp.obj	b7899cc2ebe38100
+69	463	6920066368618826	CMakeFiles/ModelViewer.dir/src/Shader.cpp.obj	ca431600a2a7a5ed
+64	570	6920066369698827	CMakeFiles/ModelViewer.dir/src/Obj.cpp.obj	b55ff72b86a1da12
+72	671	6920066370698850	CMakeFiles/ModelViewer.dir/src/main.cpp.obj	ceef8e74bc98640e
+66	749	6920066371468852	CMakeFiles/ModelViewer.dir/src/Scene.cpp.obj	191f1ab3ddbcbc02
+749	870	6920066372398838	ModelViewer.exe	18545dd7e42debc6
+8	17	0	clean	8c45b54705a541e8
+6	37	0	CMakeFiles/CopyShaders	e9d7ec302b58025
+6	37	0	C:/Users/Kristina/OneDrive/Documents/MY STUFF/CSE 167/final-windows/out/build/x64-debug/CMakeFiles/CopyShaders	e9d7ec302b58025
+10	54	0	CMakeFiles/CopyModels	3bfa76ec164aa7f6
+10	54	0	C:/Users/Kristina/OneDrive/Documents/MY STUFF/CSE 167/final-windows/out/build/x64-debug/CMakeFiles/CopyModels	3bfa76ec164aa7f6
+54	423	6920069639448571	CMakeFiles/ModelViewer.dir/src/Camera.cpp.obj	b7899cc2ebe38100
+64	479	6920069640018551	CMakeFiles/ModelViewer.dir/src/Shader.cpp.obj	ca431600a2a7a5ed
+57	598	6920069641218554	CMakeFiles/ModelViewer.dir/src/Obj.cpp.obj	b55ff72b86a1da12
+69	698	6920069642208550	CMakeFiles/ModelViewer.dir/src/main.cpp.obj	ceef8e74bc98640e
+60	783	6920069643038584	CMakeFiles/ModelViewer.dir/src/Scene.cpp.obj	191f1ab3ddbcbc02
+783	930	6920069644128555	ModelViewer.exe	18545dd7e42debc6
+8	18	0	clean	8c45b54705a541e8
+5	36	0	CMakeFiles/CopyShaders	e9d7ec302b58025
+5	36	0	C:/Users/Kristina/OneDrive/Documents/MY STUFF/CSE 167/final-windows/out/build/x64-debug/CMakeFiles/CopyShaders	e9d7ec302b58025
+9	52	0	CMakeFiles/CopyModels	3bfa76ec164aa7f6
+9	52	0	C:/Users/Kristina/OneDrive/Documents/MY STUFF/CSE 167/final-windows/out/build/x64-debug/CMakeFiles/CopyModels	3bfa76ec164aa7f6
+52	388	6920070383787477	CMakeFiles/ModelViewer.dir/src/Camera.cpp.obj	b7899cc2ebe38100
+60	520	6920070385157413	CMakeFiles/ModelViewer.dir/src/Shader.cpp.obj	ca431600a2a7a5ed
+54	628	6920070386237409	CMakeFiles/ModelViewer.dir/src/Obj.cpp.obj	b55ff72b86a1da12
+63	740	6920070387357404	CMakeFiles/ModelViewer.dir/src/main.cpp.obj	ceef8e74bc98640e
+57	1935	6920070399287499	CMakeFiles/ModelViewer.dir/src/Scene.cpp.obj	191f1ab3ddbcbc02
+1936	2082	6920070400377490	ModelViewer.exe	18545dd7e42debc6
