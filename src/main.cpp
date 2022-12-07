@@ -65,7 +65,62 @@ void saveScreenShot(const char* filename = "test.png"){
 /* Adding a new function for Final code.*/
 void animation(void) {
     // Update the status of your animated objects
+    // This should update:
+    //   - rotation matrix R
+    //   - moment of inertia (in world) MOIw
+    //   - 
     // ...
+
+    // just gonna stick stuff in here, likely to move
+    // INITIAL:
+    // R(0), w, MOIm, [change in] t
+    // 
+    // DEPENDENCIES:
+    // at start
+    // R + MOIm -> MOIw(0)
+    // MOIm + w -> L(static)
+    //
+    // per frame
+    // MOIw + L -> w(new)
+    // R + w + t -> R(new)
+    // MOIm + R -> MOIw(new)
+
+    // stays static:
+    // MOIm, L, KE
+    // model coordinate:
+    //    - stays static -- MOIm, A, KE
+    // world coordinate
+
+    // ellipsoids
+    // L -> A
+    
+    // rotation matrix (mat3)
+    glm::mat3 R;
+    // translation vector (vec3)
+    glm::vec3 b /* = (position vec) + (velocity vec * t) + (0.5* accel vec * t^2)*/;
+    // model matrix (mat4)
+    glm::mat4 T /* = mat4 containing b * mat4 containing R */;
+
+    // angular velocity (vec3), in world coordinate
+    glm::vec3 w;  // (length is rotation spseed) (direction is rotation axis)
+    /* new r = (mat3) (3D rotation matrix for axis a angle theta) * R */
+    // angular velocity (vec3), in model coordinate
+    glm::vec3 Omega /* = R inverse * w */;
+
+
+    // moment of inertia (model) -- stays static
+    // smthn smthn width of geometry in i-th coord direction, is proportional to sqrt mu_i
+    glm::mat3 MOIm; // ? how do we initialize
+    // moment of inertia (world)
+    glm::mat3 MOIw /* = R * MOIm * R inverse */;
+    // kinetic energy, in terms of [either] angular velocity w or Omega -- stays static
+    float KE /* 1.5f * w transpose * MOIw * w */;
+
+    // angular momentum (world) -- stays static
+    glm::vec3 L /* = MOIw * w */;
+    // angular momentum (model)
+    glm::vec3 A /* = R inverse * L */; // or MOIm * Omega
+
 
     std::cout << "Let's go!";
 
