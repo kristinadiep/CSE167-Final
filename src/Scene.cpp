@@ -8,6 +8,7 @@ Scene.cpp contains the implementation of the draw command
 // The scene init definition 
 #include "Scene.inl"
 
+glm::mat4 T = glm::mat4(1.0f); // using this alongside extern idk
 
 using namespace glm;
 void Scene::draw(void){
@@ -75,8 +76,8 @@ void Scene::draw(void){
              * kat: assign modelview?
              * kat: assign... material?
              */
-
             shader -> modelview =  cur_VM * (cur->modeltransforms[i]); // TODO: HW3: Without updating cur_VM, modelview would just be camera's view matrix.
+            shader->modelview *= T;
             shader -> material  = ( cur -> models[i] ) -> material;
             
             // The draw command

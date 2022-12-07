@@ -99,7 +99,7 @@ void animation(void) {
     // translation vector (vec3)
     glm::vec3 b /* = (position vec) + (velocity vec * t) + (0.5* accel vec * t^2)*/;
     // model matrix (mat4)
-    glm::mat4 T /* = mat4 containing b * mat4 containing R */;
+    // glm::mat4 T /* = mat4 containing b * mat4 containing R */;
 
     // angular velocity (vec3), in world coordinate
     glm::vec3 w;  // (length is rotation spseed) (direction is rotation axis)
@@ -121,6 +121,9 @@ void animation(void) {
     // angular momentum (model)
     glm::vec3 A /* = R inverse * L */; // or MOIm * Omega
 
+    T *= glm::mat4(glm::mat3(glm::cos(0.1f), 0, -1.0f * glm::sin(0.1f),
+                             0, 1, 0,
+                             glm::sin(0.1f), 0, glm::sin(0.1f) ));
 
     std::cout << "Let's go!";
 
