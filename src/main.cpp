@@ -16,8 +16,11 @@ static const glm::vec4 background(0.1f, 0.2f, 0.3f, 1.0f);
 static Scene scene;
 
 // input vars for animation(), let's hope they work
-static glm::vec3 w = glm::vec3(0.0f, 0.0f, 0.01f);
+glm::vec3 a;
+glm::vec3 wbar;
+static glm::vec3 w = glm::vec3(0.0f, 0.1f, 0.01f);
 static glm::mat3 MOIm = glm::mat3(1.0f);
+float t = 0.0f;
 
 glm::mat3 MOIw;
 glm::vec3 L;
@@ -77,6 +80,7 @@ void animation(void) {
     //   - moment of inertia (in world) MOIw
     //   - 
     // ...
+    t += 0.001f;
 
     // just gonna stick stuff in here, likely to move
     // INITIAL:
@@ -138,9 +142,12 @@ void animation(void) {
 
     
     // update w      /* glm::inverse(MOIw) * L */;
-    w = glm::inverse(MOIw) * L;
+    // w = glm::inverse(MOIw) * L;
+    a = -1.f * glm::inverse(MOIw) * (glm::cross(w, L));
+    wbar = w + (t / 2.0f * a) + ( (t * t / 12.0f) * (glm::cross(a, w)) );
     // update R      /* [rotation matrix] * R */
-    R = rotation(glm::length(w), glm::normalize(w)) * R;
+    // R = rotation(t * glm::length(w), glm::normalize(w)) * R;
+    R = rotation(t * glm::length(wbar), glm::normalize(wbar)) * R;
     T = glm::mat4(R);
     // update Mworld (MOIw)    /* R * MOIm * glm::transpose(R) */
     MOIw = R * MOIm * glm::transpose(R);

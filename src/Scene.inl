@@ -33,9 +33,11 @@ void Scene::init(void){
     node["table top"] = new Node;
     
     node["table"] -> childnodes.push_back( node["table top"] );
+    // translates table to center of screen, from bottom. keep
     node["table"] -> childtransforms.push_back( translate(vec3(0.0f,1.0f,0.0f)) );
     
     node["table top"] -> models.push_back( model["table piece"] );
+    // scales cube to flatter table top. keep
     node["table top"] -> modeltransforms.push_back( scale(vec3(2.0f,0.2f,1.0f)) );
     
     node["world"] -> childnodes.push_back( node["table"] );

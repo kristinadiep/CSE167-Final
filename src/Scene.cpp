@@ -77,8 +77,10 @@ void Scene::draw(void){
              * kat: assign modelview?
              * kat: assign... material?
              */
-            shader->modelview = cur_VM * (cur->modeltransforms[i]); // TODO: HW3: Without updating cur_VM, modelview would just be camera's view matrix.
-            shader->modelview = T * shader->modelview;
+            // shader->modelview = cur_VM * (cur->modeltransforms[i]); // TODO: HW3: Without updating cur_VM, modelview would just be camera's view matrix.
+            // shader->modelview = T * shader->modelview;
+            shader->modelview = T * (cur->modeltransforms[i]);  // rotation (when at world origin)..
+            shader->modelview = cur_VM * shader->modelview;     // .. and then translation!   (previously swapped orders)
             shader -> material  = ( cur -> models[i] ) -> material;
             
             // The draw command
