@@ -15,6 +15,10 @@ static const char* title = "Scene viewer";
 static const glm::vec4 background(0.1f, 0.2f, 0.3f, 1.0f);
 static Scene scene;
 
+// input vars for animation(), let's hope they work
+static glm::vec3 w = glm::vec3(0.0f, 1.0f, 0.0f);
+static glm::mat3 MOIm = glm::mat3(1.0f);
+
 #include "hw3AutoScreenshots.h"
 
 void printHelp(){
@@ -125,6 +129,12 @@ void animation(void) {
                              0, 1, 0,
                              glm::sin(0.1f), 0, glm::sin(0.1f) ));
 
+    // update w      /* glm::inverse(MOIw) * L */;
+    w = glm::inverse(MOIw) * L;
+    // update R      /* [rotation matrix] * R */
+    
+    // update Mworld (MOIw)    /* R * MOIm * glm::transpose(R) */
+
     std::cout << "Let's go!";
 
     glutPostRedisplay();
@@ -205,6 +215,10 @@ int main(int argc, char** argv)
     std::cout << "OpenGL Version: " << glGetString(GL_VERSION) << std::endl;
     // END CREATE WINDOW
     
+    glm::mat3 R = glm::mat3(T);
+    glm::mat3 MOIw = R * MOIm * glm::transpose(R);
+    glm::vec3 L = MOIw * w;
+
     initialize();
     glutDisplayFunc(display);
     glutKeyboardFunc(keyboard);

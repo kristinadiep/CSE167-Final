@@ -12,6 +12,18 @@ Camera is a class for a camera object.
 #ifndef __CAMERA_H__
 #define __CAMERA_H__
 
+/** Kat: Moved from Camera.cpp to here, Camera.h, so I can use it in main. 
+    C'mon, it doesn't make that much of a differnce, does it? 
+    yes it does. externs babey. uhh.. will deal with this later, otherwise unharmed from Camera.cpp*/
+// Quaternion multiplication p * q
+extern glm::vec4 qmultiply(const glm::vec4 p, const glm::vec4 q);
+
+// Quaternion conjugation
+extern glm::vec4 qconj(const glm::vec4 q);
+
+extern glm::mat3 rotation(const float degrees, const glm::vec3 axis);
+
+
 class Camera {
 public:
     glm::vec3 eye;// position of the eye

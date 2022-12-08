@@ -1,6 +1,7 @@
 #include "Camera.h"
 #include <math.h>
 
+/** Kat: Sticking this as an extern function in one of the headers. :) */
 // Quaternion multiplication p * q
 glm::vec4 qmultiply(const glm::vec4 p, const glm::vec4 q){
     const float p_re = p.w;
@@ -29,6 +30,7 @@ glm::mat3 rotation(const float degrees,const glm::vec3 axis){
     return R;
     //return glm::mat3(1.0f);
 }
+
 
 void Camera::rotateRight(const float degrees){
     glm::vec3 targetToEye = eye - target;
