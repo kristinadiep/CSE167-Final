@@ -18,9 +18,13 @@ static Scene scene;
 // input vars for animation(), let's hope they work
 glm::vec3 a;
 glm::vec3 wbar;
- static glm::vec3 w = glm::vec3(0.01f, 0.0f, 0.1f);
-// static glm::vec3 w = glm::vec3(0.1f, 0.01f, 0.0f);
-// static glm::vec3 w = glm::vec3(0.0f, 0.1f, 0.01f);
+// static glm::vec3 w = glm::vec3(0.0f, 0.0f, 0.1f);   // z axis
+// static glm::vec3 w = glm::vec3(0.1f, 0.0f, 0.0f); // x axis
+// static glm::vec3 w = glm::vec3(0.0f, 0.1f, 0.0f); // y axis
+
+static glm::vec3 w = glm::vec3(0.01f, 0.0f, 0.1f);   // z axis (slight x)
+// static glm::vec3 w = glm::vec3(0.1f, 0.01f, 0.0f); // x axis (slight y)
+// static glm::vec3 w = glm::vec3(0.0f, 0.1f, 0.01f); // y axis (slight z)
 // static glm::mat3 MOIm = glm::mat3(1.0f);
 static glm::mat3 MOIm = glm::mat3(0.8f, 0.0f, 0.0f,
                                     0.0f, 0.1f, 0.0f,
