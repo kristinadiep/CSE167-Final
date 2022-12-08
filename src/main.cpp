@@ -18,9 +18,14 @@ static Scene scene;
 // input vars for animation(), let's hope they work
 glm::vec3 a;
 glm::vec3 wbar;
-static glm::vec3 w = glm::vec3(0.0f, 0.1f, 0.01f);
-static glm::mat3 MOIm = glm::mat3(1.0f);
-float t = 0.0f;
+ static glm::vec3 w = glm::vec3(0.01f, 0.0f, 0.1f);
+// static glm::vec3 w = glm::vec3(0.1f, 0.01f, 0.0f);
+// static glm::vec3 w = glm::vec3(0.0f, 0.1f, 0.01f);
+// static glm::mat3 MOIm = glm::mat3(1.0f);
+static glm::mat3 MOIm = glm::mat3(0.8f, 0.0f, 0.0f,
+                                    0.0f, 0.1f, 0.0f,
+                                    0.0f, 0.0f, 0.4f);
+float t = 1.0f;
 
 glm::mat3 MOIw;
 glm::vec3 L;
@@ -80,7 +85,7 @@ void animation(void) {
     //   - moment of inertia (in world) MOIw
     //   - 
     // ...
-    t += 0.001f;
+    // t += 0.00001f;
 
     // just gonna stick stuff in here, likely to move
     // INITIAL:
@@ -142,7 +147,7 @@ void animation(void) {
 
     
     // update w      /* glm::inverse(MOIw) * L */;
-    // w = glm::inverse(MOIw) * L;
+    w = glm::inverse(MOIw) * L;
     a = -1.f * glm::inverse(MOIw) * (glm::cross(w, L));
     wbar = w + (t / 2.0f * a) + ( (t * t / 12.0f) * (glm::cross(a, w)) );
     // update R      /* [rotation matrix] * R */
@@ -152,7 +157,9 @@ void animation(void) {
     // update Mworld (MOIw)    /* R * MOIm * glm::transpose(R) */
     MOIw = R * MOIm * glm::transpose(R);
 
-    std::cout << "Let's go!";
+    // std::cout << "Let's go!";
+
+    std::cout << "t: " << t << std::endl;
 
     glutPostRedisplay();
 }
