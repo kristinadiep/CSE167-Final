@@ -16,7 +16,7 @@ static const glm::vec4 background(0.1f, 0.2f, 0.3f, 1.0f);
 static Scene scene;
 
 // input vars for animation(), let's hope they work
-static glm::vec3 w = glm::vec3(0.0f, 1.0f, 0.0f);
+static glm::vec3 w = glm::vec3(0.0f, 0.001f, 0.0f);
 static glm::mat3 MOIm = glm::mat3(1.0f);
 
 #include "hw3AutoScreenshots.h"
@@ -125,15 +125,20 @@ void animation(void) {
     // angular momentum (model)
     glm::vec3 A /* = R inverse * L */; // or MOIm * Omega
 
-    T *= glm::mat4(glm::mat3(glm::cos(0.1f), 0, -1.0f * glm::sin(0.1f),
+    /**
+    T *= glm::mat4(glm::mat3(glm::cos(0.01f), 0, -1.0f * glm::sin(0.01f),
                              0, 1, 0,
-                             glm::sin(0.1f), 0, glm::sin(0.1f) ));
+                             glm::sin(0.01f), 0, glm::sin(0.01f) ));*/
+    T *= glm::mat4(rotation(.01f, glm::vec3(0.0f, 1.0f, 0.0f)));
 
-    // update w      /* glm::inverse(MOIw) * L */;
-    w = glm::inverse(MOIw) * L;
-    // update R      /* [rotation matrix] * R */
     
+    // update w      /* glm::inverse(MOIw) * L */;
+    // w = glm::inverse(MOIw) * L;
+    // update R      /* [rotation matrix] * R */
+    // R = rotation(glm::length(w), glm::normalize(w) * R);
+    // T *= glm::mat4(R);
     // update Mworld (MOIw)    /* R * MOIm * glm::transpose(R) */
+    
 
     std::cout << "Let's go!";
 
