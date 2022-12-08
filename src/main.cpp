@@ -16,8 +16,11 @@ static const glm::vec4 background(0.1f, 0.2f, 0.3f, 1.0f);
 static Scene scene;
 
 // input vars for animation(), let's hope they work
-static glm::vec3 w = glm::vec3(0.0f, 0.001f, 0.0f);
+static glm::vec3 w = glm::vec3(0.0f, 0.0f, 0.01f);
 static glm::mat3 MOIm = glm::mat3(1.0f);
+
+glm::mat3 MOIw;
+glm::vec3 L;
 
 #include "hw3AutoScreenshots.h"
 
@@ -99,14 +102,14 @@ void animation(void) {
     // L -> A
     
     // rotation matrix (mat3)
-    glm::mat3 R;
+    // glm::mat3 R;
     // translation vector (vec3)
     glm::vec3 b /* = (position vec) + (velocity vec * t) + (0.5* accel vec * t^2)*/;
     // model matrix (mat4)
     // glm::mat4 T /* = mat4 containing b * mat4 containing R */;
 
     // angular velocity (vec3), in world coordinate
-    glm::vec3 w;  // (length is rotation spseed) (direction is rotation axis)
+    // glm::vec3 w;  // (length is rotation spseed) (direction is rotation axis)
     /* new r = (mat3) (3D rotation matrix for axis a angle theta) * R */
     // angular velocity (vec3), in model coordinate
     glm::vec3 Omega /* = R inverse * w */;
@@ -114,14 +117,14 @@ void animation(void) {
 
     // moment of inertia (model) -- stays static
     // smthn smthn width of geometry in i-th coord direction, is proportional to sqrt mu_i
-    glm::mat3 MOIm; // ? how do we initialize
+    // glm::mat3 MOIm; // ? how do we initialize
     // moment of inertia (world)
-    glm::mat3 MOIw /* = R * MOIm * R inverse */;
+    // glm::mat3 MOIw /* = R * MOIm * R inverse */;
     // kinetic energy, in terms of [either] angular velocity w or Omega -- stays static
     float KE /* 1.5f * w transpose * MOIw * w */;
 
     // angular momentum (world) -- stays static
-    glm::vec3 L /* = MOIw * w */;
+    // glm::vec3 L /* = MOIw * w */;
     // angular momentum (model)
     glm::vec3 A /* = R inverse * L */; // or MOIm * Omega
 
@@ -129,16 +132,18 @@ void animation(void) {
     T *= glm::mat4(glm::mat3(glm::cos(0.01f), 0, -1.0f * glm::sin(0.01f),
                              0, 1, 0,
                              glm::sin(0.01f), 0, glm::sin(0.01f) ));*/
-    T *= glm::mat4(rotation(.01f, glm::vec3(0.0f, 1.0f, 0.0f)));
+    // T *= glm::mat4(rotation(.01f, 
+        // glm::vec3(0.0f, 0.0f, 1.0f)));
+    // btw, x and y axis go around camera, z axis rotates fine
 
     
     // update w      /* glm::inverse(MOIw) * L */;
-    // w = glm::inverse(MOIw) * L;
+    w = glm::inverse(MOIw) * L;
     // update R      /* [rotation matrix] * R */
-    // R = rotation(glm::length(w), glm::normalize(w) * R);
-    // T *= glm::mat4(R);
+    R = rotation(glm::length(w), glm::normalize(w)) * R;
+    T = glm::mat4(R);
     // update Mworld (MOIw)    /* R * MOIm * glm::transpose(R) */
-    
+    MOIw = R * MOIm * glm::transpose(R);
 
     std::cout << "Let's go!";
 
@@ -220,9 +225,9 @@ int main(int argc, char** argv)
     std::cout << "OpenGL Version: " << glGetString(GL_VERSION) << std::endl;
     // END CREATE WINDOW
     
-    glm::mat3 R = glm::mat3(T);
-    glm::mat3 MOIw = R * MOIm * glm::transpose(R);
-    glm::vec3 L = MOIw * w;
+    R = glm::mat3(T);
+    MOIw = R * MOIm * glm::transpose(R);
+    L = MOIw * w;
 
     initialize();
     glutDisplayFunc(display);

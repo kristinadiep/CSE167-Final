@@ -24,7 +24,7 @@
 #define __SCENE_H__
 
 extern glm::mat4 T; // global variable for rotation matrix (we only have one model to test, so only having one is ok rn)
-
+extern glm::mat3 R;
 
 class Node {
 public:
